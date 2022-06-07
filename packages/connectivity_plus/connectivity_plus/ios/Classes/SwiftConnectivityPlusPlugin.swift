@@ -36,6 +36,10 @@ public class SwiftConnectivityPlusPlugin: NSObject, FlutterPlugin, FlutterStream
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
 
+  public func detachFromEngine(for registrar: FlutterPluginRegistrar) {
+    let _ = onCancel(withArguments: nil)
+  }
+
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     switch call.method {
     case "check":
